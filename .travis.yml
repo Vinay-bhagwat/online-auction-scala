@@ -13,8 +13,6 @@ before_cache:
   # Delete all ivydata files since ivy touches them on each build
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
 notifications:
-  webhooks:
-    urls:
-        - https://webhooks.gitter.im/e/773aba95141768c32dae
+ email: vinay.bhagwat@afourtech.com
     on_success: always
     on_failure: always
