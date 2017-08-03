@@ -12,6 +12,27 @@ before_cache:
   - rm -rf $HOME/.ivy2/cache/com.example
   # Delete all ivydata files since ivy touches them on each build
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
+
+deploy:
+- provider: s3
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+    bucket: online.auction.deploy
+  region: US East
+- provider: codedeploy
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  bucket: yourBucketNameHERE
+  key: latest.zip
+  bundle_type: zip
+  application: online-auction-scala
+  deployment_group: online-auction-scala
+  region: US East
+
+
+
 notifications:
  email: vinay.bhagwat@afourtech.com
-    
+

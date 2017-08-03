@@ -51,7 +51,8 @@ lazy val itemImpl = (project in file("item-impl"))
       "com.datastax.cassandra" % "cassandra-driver-extras" % "3.0.0",
       macwire,
       scalaTest
-    )
+    ),
+    lagomServicePort := 11004
   )
   .settings(lagomForkedTestSettings: _*)
   .dependsOn(itemApi, biddingApi)
@@ -80,6 +81,7 @@ lazy val biddingImpl = (project in file("bidding-impl"))
       macwire,
       scalaTest
     ),
+    lagomServicePort := 11003,
     maxErrors := 10000
 
   )
@@ -135,6 +137,7 @@ lazy val transactionImpl = (project in file("transaction-impl"))
       macwire,
       scalaTest
     ),
+    lagomServicePort := 11002,
     EclipseKeys.skipProject := true
   )
 
@@ -159,7 +162,8 @@ lazy val userImpl = (project in file("user-impl"))
       lagomScaladslPersistenceCassandra,
       macwire,
       scalaTest
-    )
+    ),
+    lagomServicePort := 11001
   )
 
 lazy val webGateway = (project in file("web-gateway"))
@@ -173,11 +177,13 @@ lazy val webGateway = (project in file("web-gateway"))
       macwire,
       scalaTest,
 
+
       "org.ocpsoft.prettytime" % "prettytime" % "3.2.7.Final",
 
       "org.webjars" % "foundation" % "6.2.3",
       "org.webjars" % "foundation-icon-fonts" % "d596a3cfb3"
     ),
+    lagomServicePort := 11000,
     EclipseKeys.preTasks := Seq(compile in Compile)
   )
 

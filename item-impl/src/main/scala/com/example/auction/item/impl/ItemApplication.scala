@@ -2,12 +2,13 @@ package com.example.auction.item.impl
 
 import com.example.auction.bidding.api.BiddingService
 import com.example.auction.item.api.ItemService
+import com.lightbend.lagom.scaladsl.api.ServiceLocator
 import com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaComponents
+import com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
 import com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraPersistenceComponents
 import com.lightbend.lagom.scaladsl.server._
 import com.softwaremill.macwire._
-import com.typesafe.conductr.bundlelib.lagom.scaladsl.ConductRApplicationComponents
 import play.api.Environment
 import play.api.libs.ws.ahc.AhcWSComponents
 
@@ -42,7 +43,7 @@ class ItemApplicationLoader extends LagomApplicationLoader {
     new ItemApplication(context) with LagomDevModeComponents
 
   override def load(context: LagomApplicationContext): LagomApplication =
-    new ItemApplication(context) with ConductRApplicationComponents
+    new ItemApplication(context) with ConfigurationServiceLocatorComponents
 
   override def describeService = Some(readDescriptor[ItemService])
 }

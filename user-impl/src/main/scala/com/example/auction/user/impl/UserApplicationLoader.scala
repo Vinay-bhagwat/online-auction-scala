@@ -1,6 +1,7 @@
 package com.example.auction.user.impl
 
 import com.example.auction.user.api.UserService
+import com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
 import com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraPersistenceComponents
 import com.lightbend.lagom.scaladsl.server._
@@ -21,7 +22,7 @@ abstract class UserApplication(context: LagomApplicationContext)
 
 class UserApplicationLoader extends LagomApplicationLoader {
   override def load(context: LagomApplicationContext) =
-    new UserApplication(context) with ConductRApplicationComponents
+    new UserApplication(context) with ConfigurationServiceLocatorComponents
 
   override def loadDevMode(context: LagomApplicationContext) =
     new UserApplication(context) with LagomDevModeComponents

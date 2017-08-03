@@ -3,6 +3,7 @@ package com.example.auction.bidding.impl
 import com.example.auction.bidding.api.BiddingService
 import com.example.auction.item.api.ItemService
 import com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaComponents
+import com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
 import com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraPersistenceComponents
 import com.lightbend.lagom.scaladsl.server._
@@ -28,7 +29,7 @@ abstract class BiddingApplication(context: LagomApplicationContext) extends Lago
 
 class BiddingApplicationLoader extends LagomApplicationLoader {
   override def load(context: LagomApplicationContext) =
-    new BiddingApplication(context) with ConductRApplicationComponents
+    new BiddingApplication(context) with ConfigurationServiceLocatorComponents
 
   override def loadDevMode(context: LagomApplicationContext) =
     new BiddingApplication(context) with LagomDevModeComponents
