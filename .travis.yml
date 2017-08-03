@@ -14,5 +14,4 @@ before_cache:
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
 notifications:
  email: vinay.bhagwat@afourtech.com
-    on_success: always
-    on_failure: always
+    
