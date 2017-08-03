@@ -31,7 +31,11 @@ deploy:
   deployment_group: online-auction-scala
   region: US East
 
-
+on: *2
+script:
+  - zip -r latest *
+  - mkdir -p dpl_cd_upload
+  - mv latest.zip dpl_cd_upload/latest.zip
 
 notifications:
  email: vinay.bhagwat@afourtech.com
