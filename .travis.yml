@@ -20,7 +20,7 @@ deploy:
   local_dir: dpl_cd_upload
   skip_cleanup: true
   bucket: online.auction.deploy
-  region: US East
+  region: US East (N. Virginia)
 - provider: codedeploy
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
@@ -29,7 +29,7 @@ deploy:
   bundle_type: zip
   application: online-auction-scala
   deployment_group: online-auction-scala
-  region: US East
+  region: US East (N. Virginia)
 
 on: *2
 script:
