@@ -37,7 +37,8 @@ deploy:
 
 script:
   - sbt dist
-  -  zip -r latest . -i *.zip appspec.yml
+  - find . -name '*.zip' -exec mv --target-directory='./' '{}' +
+  - zip -r latest  *.zip
   - mkdir -p dpl_cd_upload
   - mv latest.zip dpl_cd_upload/latest.zip
 
