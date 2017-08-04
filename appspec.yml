@@ -3,5 +3,10 @@ os: linux
 files:
   - source: ./
     destination: /home/ubuntu/Project
-script:
-  - echo "hello script runs here successfully"
+
+hooks:
+
+  AfterInstall:
+    - location: /home/ubuntu/Scripts/RunResourceTests.sh
+      timeout: 180
+
