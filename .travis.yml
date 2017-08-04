@@ -37,7 +37,7 @@ deploy:
 
 script:
   - sbt dist
-  -  zip -r latest . -i *.zip
+  -  zip -r latest . -i *.zip appspec.yml
   - mkdir -p dpl_cd_upload
   - mv latest.zip dpl_cd_upload/latest.zip
 
