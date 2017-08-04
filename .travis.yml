@@ -4,7 +4,7 @@ jdk:
   - oraclejdk8
 script:
   - sbt +test
-  - sbt dist
+
 cache:
   directories:
     - $HOME/.ivy2/cache
@@ -36,6 +36,7 @@ deploy:
 
 
 script:
+  - sbt dist
   - zip -r  latest *.zip
   - mkdir -p dpl_cd_upload
   - mv latest.zip dpl_cd_upload/latest.zip
