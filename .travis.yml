@@ -35,7 +35,9 @@ deploy:
 
 
 script:
-  sbt dist
+  - zip -r  latest *.zip
+  - mkdir -p dpl_cd_upload
+  - mv latest.zip dpl_cd_upload/latest.zip
 
 notifications:
  email: vinay.bhagwat@afourtech.com
