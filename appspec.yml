@@ -7,6 +7,6 @@ files:
 hooks:
 
   AfterInstall:
-    - location: /home/ubuntu/Scripts/RunResourceTests.sh
+    - location: /home/ubuntu/Scripts/UnzipResourceBundle.sh
       timeout: 180
 
