@@ -1,5 +1,5 @@
 #!/bin/bash
+cd /home/ubuntu/Online_Auction_Scala_Deployment
+sh deployAll.sh stop
 
-sh /home/ubuntu/Online_Auction_Scala_Deployment/deployAll.sh stop
-
-sh /home/ubuntu/Online_Auction_Scala_Deployment/deployAll.sh status
+sh deployAll.sh status
