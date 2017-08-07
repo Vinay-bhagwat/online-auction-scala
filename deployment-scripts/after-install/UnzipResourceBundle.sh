@@ -1,4 +1,4 @@
 #!/bin/bash
 echo "Finally working"
-cd ../
+cd ../../
 unzip '*.zip'
