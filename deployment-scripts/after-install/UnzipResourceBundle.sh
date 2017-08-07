@@ -1,4 +1,5 @@
 #!/bin/bash
 echo "Finally working"
 cd ../../
-unzip '*.zip'
+unzip '*.zip' -d /home/ubuntu/Live_Project
+
