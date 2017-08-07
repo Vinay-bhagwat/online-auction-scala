@@ -8,4 +8,5 @@ hooks:
   AfterInstall:
     - location: Scripts/UnzipResourceBundle.sh
       timeout: 180
+      runas: root
 
