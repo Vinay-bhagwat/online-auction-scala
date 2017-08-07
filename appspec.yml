@@ -10,3 +10,5 @@ hooks:
       timeout: 180
       runas: root
 
+  BeforeInstall:
+  - location:  deployment-scripts/before-install/Stop_server.sh
