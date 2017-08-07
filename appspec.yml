@@ -4,4 +4,8 @@ files:
   - source: ./
     destination: /home/ubuntu/Project
 
+hooks:
+  AfterInstall:
+    - location: Scripts/UnzipResourceBundle.sh
+      timeout: 180
 
