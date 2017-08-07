@@ -30,7 +30,7 @@ deploy:
   key: latest.zip
   bundle_type: zip
   application: online-auction-scala
-  deployment_group: deploymentGroup
+  deployment_group: deploymentGroup1
   region: us-east-2
 
 
