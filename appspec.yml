@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/Project
+    destination: /home/ubuntu/Deployment_Env
 
 hooks:
   AfterInstall:
