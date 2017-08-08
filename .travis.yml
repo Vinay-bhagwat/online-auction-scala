@@ -4,6 +4,16 @@ jdk:
   - oraclejdk8
 script:
   - sbt +test
+  -
+script:
+  - sbt dist
+  - find . -name '*.zip' -exec mv --target-directory='./' '{}' +
+  - unzip '*.zip'
+  - zip -r latest  deployment-scripts *.zip appspec.yml
+
+after_success:
+ - scp latest.zip -i $AWS_INSTANCE_KEY  ec2-13-59-201-255.us-east-2.compute.amazonaws.com:/
+
 
 cache:
   directories:
@@ -24,13 +34,6 @@ deploy:
   revision_type: github
 
 
-
-#script:
- # - sbt dist
-  #-
-  # zip -r latest  deployment-scripts *.zip appspec.yml
-  #- mkdir -p dpl_cd_upload
-  #- mv latest.zip dpl_cd_upload/latest.zip
 
 notifications:
  email: vinay.bhagwat@afourtech.com
