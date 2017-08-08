@@ -15,15 +15,26 @@ before_cache:
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
 
 deploy:
+#- provider: s3
+ # access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
+ # local_dir: dpl_cd_upload
+  #skip_cleanup: true
+  #bucket: online-auction-bucket
+ # region: us-east-2
+
 - provider: codedeploy
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
-  revision_type: github
+  bucket: online-auction-bucket
+  local_dir: dpl_cd_upload
   key: latest.zip
   bundle_type: zip
   application: online-auction-scala
   deployment_group: deploymentGroup1
   region: us-east-2
+
+
 
 script:
   - sbt dist
