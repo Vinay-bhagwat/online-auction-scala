@@ -31,7 +31,6 @@ deploy:
   application: online-auction-scala
   deployment_group: deploymentGroup1
   region: us-east-2
-  revision_type: github
 
 
 
