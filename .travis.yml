@@ -15,32 +15,22 @@ before_cache:
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
 
 deploy:
-- provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  local_dir: dpl_cd_upload
-  skip_cleanup: true
-  bucket: online-auction-bucket
-  region: us-east-2
-
 - provider: codedeploy
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
-  bucket: online-auction-bucket
-  key: latest.zip
-  bundle_type: zip
   application: online-auction-scala
   deployment_group: deploymentGroup1
   region: us-east-2
+  revision_type: github
 
 
 
-script:
-  - sbt dist
-  - find . -name '*.zip' -exec mv --target-directory='./' '{}' +
-  - zip -r latest  deployment-scripts *.zip appspec.yml
-  - mkdir -p dpl_cd_upload
-  - mv latest.zip dpl_cd_upload/latest.zip
+#script:
+ # - sbt dist
+  #-
+  # zip -r latest  deployment-scripts *.zip appspec.yml
+  #- mkdir -p dpl_cd_upload
+  #- mv latest.zip dpl_cd_upload/latest.zip
 
 notifications:
  email: vinay.bhagwat@afourtech.com
