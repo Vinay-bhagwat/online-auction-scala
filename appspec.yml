@@ -4,6 +4,7 @@ files:
   - source: /
     destination: /home/ubuntu/Deployment_Env
 
+
 hooks:
   AfterInstall:
     - location: deployment-scripts/after-install/UnzipResourceBundle.sh
