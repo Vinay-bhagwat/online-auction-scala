@@ -8,7 +8,7 @@ files:
 hooks:
   AfterInstall:
     - location: deployment-scripts/after-install/UnzipResourceBundle.sh
-      timeout: 180
+      timeout: 1800
       runas: root
 
   BeforeInstall:
