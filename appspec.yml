@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/Project
+    destination: /home/ubuntu/Project_Demo
 hooks:
   AfterInstall:
     - location: deployment-scripts/after-install/UnzipResourceBundle.sh
